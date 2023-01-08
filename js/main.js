@@ -22,3 +22,36 @@ function isNumber(n){
 
 const btnPlus = document.querySelector('[id="btn-plus"]')
 btnPlus.addEventListener('click', btnPlusClick);
+
+function btnPlusClick(event){
+  event.preventDefault();
+
+  if(inputNumber1.value > 0 && inputNumber2.value > 0){
+      const resultBox = parseFloat(inputNumber1.value) + parseFloat(inputNumber2.value);
+      document.getElementById('result-box').innerHTML = resultBox;
+  }
+}
+
+const btnTimes = document.querySelector('[id="btn-times"]');
+btnTimes.addEventListener('click', btnTimesClick);
+
+function btnTimesClick(event){
+  event.preventDefault();
+
+  if(inputNumber1.value > 0 && inputNumber2.value > 0){
+    const resultBox = parseFloat(inputNumber1.value) * parseFloat(inputNumber2.value);
+    document.getElementById('result-box').innerHTML = resultBox;
+  }
+}
+
+const btnClear = document.querySelector('[id="btn-clear"]');
+btnClear.addEventListener('click', btnClearClick);
+
+function btnClearClick(event){
+  event.preventDefault();
+  inputNumber1.value = "";
+  inputNumber1.classList.remove("input-error");
+  inputNumber2.value = "";
+  inputNumber2.classList.remove("input-error");
+  document.getElementById('result-box').innerHTML = 0;
+}
